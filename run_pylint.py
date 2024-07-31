@@ -2,6 +2,7 @@
     https://stackoverflow.com/questions/49100806/
     pylint-and-subprocess-run-returning-exit-status-28
 """
+
 import subprocess
 
 cmd = " pylint src\\**\\*"

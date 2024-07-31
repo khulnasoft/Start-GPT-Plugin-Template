@@ -1,6 +1,7 @@
-"""This is a template for Auto-GPT plugins."""
+"""This is a template for Start-GPT plugins."""
+
 import abc
-from typing import Any, Dict, List, Optional, Tuple, TypeVar, TypedDict
+from typing import Any, Dict, List, Optional, Tuple, TypedDict, TypeVar
 
 from abstract_singleton import AbstractSingleton, Singleton
 
@@ -14,14 +15,14 @@ class Message(TypedDict):
 
 class AutoGPTPluginTemplate(AbstractSingleton, metaclass=Singleton):
     """
-    This is a template for Auto-GPT plugins.
+    This is a template for Start-GPT plugins.
     """
 
     def __init__(self):
         super().__init__()
-        self._name = "Auto-GPT-Plugin-Template"
+        self._name = "Start-GPT-Plugin-Template"
         self._version = "0.1.0"
-        self._description = "This is a template for Auto-GPT plugins."
+        self._description = "This is a template for Start-GPT plugins."
 
     @abc.abstractmethod
     def can_handle_on_response(self) -> bool:
@@ -245,9 +246,7 @@ class AutoGPTPluginTemplate(AbstractSingleton, metaclass=Singleton):
         pass
 
     @abc.abstractmethod
-    def can_handle_text_embedding(
-        self, text: str
-    ) -> bool:
+    def can_handle_text_embedding(self, text: str) -> bool:
         """This method is called to check that the plugin can
           handle the text_embedding method.
         Args:
@@ -255,11 +254,9 @@ class AutoGPTPluginTemplate(AbstractSingleton, metaclass=Singleton):
           Returns:
               bool: True if the plugin can handle the text_embedding method."""
         return False
-    
+
     @abc.abstractmethod
-    def handle_text_embedding(
-        self, text: str
-    ) -> list:
+    def handle_text_embedding(self, text: str) -> list:
         """This method is called when the chat completion is done.
         Args:
             text (str): The text to be convert to embedding.
